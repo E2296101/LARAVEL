@@ -1,4 +1,7 @@
+## Liens WEBDEV / Lien du thème : 
 
+- WebDev : https://e2296101.webdev.cmaisonneuve.qc.ca/laravel/index
+- Lien du thème utilisé : https://themefisher.com/products/bitbank
 
 ## EXERCICE 01 : 
 
