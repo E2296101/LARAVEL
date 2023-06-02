@@ -19,6 +19,6 @@ social pour eux.
 
 ## Liens WebDev
 
-- [Ste sur WebDev](https://e2296101.webdev.cmaisonneuve.qc.ca/CADRICIEL/TP_01/).
+- [Site sur WebDev](https://e2296101.webdev.cmaisonneuve.qc.ca/CADRICIEL/TP_01/).
 
 
