@@ -29,7 +29,7 @@
                 </form>
             </div>
             <div class="text-center mt-3">
-                <a href="/">@lang('login.text_lien_creation')</a>
+                <a href="{{route('auth.create')}}">@lang('login.text_lien_creation')</a>
             </div>
         </div>
     </div>

@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'name',
+        
         'email',
         'password',
     ];
@@ -44,6 +44,6 @@ class User extends Authenticatable
 
     public function etudiant()
     {
-        return $this->hasOne(Etudiant::class);
+       return $this->hasOne(Etudiant::class, 'id'); // Spécifiez 'id' en tant que clé étrangère pour la relation
     }
 }

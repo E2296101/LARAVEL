@@ -22,8 +22,7 @@ class Fichier extends Migration
 
             $table->foreign('etudiant_id') // Define foreign key constraint
                 ->references('id')
-                ->on('etudiants')
-                ->onDelete('cascade');
+                ->on('etudiants');
 
             $table->timestamps();
         });
