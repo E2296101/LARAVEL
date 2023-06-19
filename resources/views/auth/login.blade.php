@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-6">
             <div class="card">
-                <form action="" method="post">
+                <form action="{{route('login.authentification')}}"  method="post">
                 @csrf
                 <div class="card-body">
                     <input type="email" class="form-control mt-3" name="email" placeholder="@lang('login.text_email')" value="{{old('email')}}">

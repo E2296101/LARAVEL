@@ -16,7 +16,8 @@ class Article extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->string('titre', 50);
-            $table->text('contenu', 1000);
+            $table->text('contenu_fr', 1000);
+            $table->text('contenu_en', 1000);
             $table->date('date_publication');
             $table->unsignedBigInteger('etudiant_id'); // Foreign key column
 

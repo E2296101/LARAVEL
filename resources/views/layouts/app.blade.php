@@ -18,11 +18,11 @@
             <a class="navbar-brand" href="/">MAISONNEUVE</a>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav mr-auto">
-                    <a class="nav-link text-white" href="/">@lang('index.text_forum')</a>
+                    <a class="nav-link text-white" href="{{route('forum.index')}}">@lang('index.text_forum')</a>
                     <a class="nav-link text-white" href="/">@lang('index.text_repertoire')</a>
                 </div>
                 <div class="navbar-nav ms-auto d-flex align-items-center">
-                 {!! Auth::user() ? '<a class="nav-link text-white" href="/deconnexion"><i class="fas fa-sign-out-alt"></i> ' . Auth::user()->name.'</a>'
+                 {!! Auth::user() ? '<a class="nav-link text-white" href="/deconnexion"><i class="fas fa-sign-out-alt"></i> ' . Auth::user()->etudiant->nom.'</a>'
                  : '<a class="nav-link text-white" href="'.route('login').'"><i class="fas fa-user text-white"></i>'. __('index.text_login') .'</a>' !!}
                    
                     <span class="nav-link text-white">|</span>

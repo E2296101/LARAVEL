@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EtudiantController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\UserController;
@@ -22,7 +23,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('liste-etudiants', [EtudiantController::class, 'index'])->name('etudiants.index');
+Route::get('forum', [ArticleController::class, 'index'])->name('forum.index')->middleware('auth');
+Route::get('forum-create', [ArticleController::class, 'show'])->name('forum.create')->middleware('auth');
+Route::post('forum-create', [ArticleController::class, 'store'])->middleware('auth');
 Route::get('user-create', [UserController::class, 'index'])->name('auth.create');
 Route::post('user-create', [UserController::class, 'store']);
 
@@ -33,6 +36,8 @@ Route::get('etudiant-edit/{EtudiantId}', [EtudiantController::class, 'edit'])->n
 Route::put('etudiant-edit/{etudiant}', [EtudiantController::class, 'update']);
 
 Route::get('login', [AuthController::class, 'index'])->name('login');
+Route::post('login', [AuthController::class, 'authentification'])->name('login.authentification');
+Route::get('deconnexion', [AuthController::class, 'deconnexion']);
 Route::get('lang/{locale}', [LanguageController::class, 'index'])->name('lang');
 
 

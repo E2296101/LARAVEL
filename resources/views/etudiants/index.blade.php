@@ -40,9 +40,7 @@
                                         <td scope="col"><a href="#" class="btn btn-outline-danger" data-id="{{$etudiant->id}}" data-nom="{{$etudiant->nom}}" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Supprimer</a></td>
                 
                                     </tr>
-                               
-                           
-                                    
+                                 
                                 @empty
                                     <p class="text-danger">Aucun étudiant trouvé</p>
                                 @endforelse

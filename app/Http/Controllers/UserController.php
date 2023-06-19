@@ -39,12 +39,8 @@ class UserController extends Controller
      */
 public function store(Request $request)
 {
-/*     // Validation des données pour le modèle User
-    $validatedUserData = $request->validate([
 
-    ]); */
-
-    // Validation des données pour le modèle Etudiant
+    // Validation des données pour le modèle Etudiant et user
     $validatedData = $request->validate([
         'nom' => 'required|min:2|max:50',
         'adresse' => 'required|min:2|max:250',

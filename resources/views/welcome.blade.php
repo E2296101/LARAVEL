@@ -11,7 +11,7 @@
                 <p>
                     @lang('index.text_paragraphe')
                 </p>
-                <a href="{{route('etudiants.index')}}" class="btn btn-primary">@lang('index.text_bouton')</a>
+                <a href="{{route('forum.index')}}" class="btn btn-primary">@lang('index.text_bouton')</a>
             </div>
         </div>
     </div>

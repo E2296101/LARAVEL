@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Article;
+use Carbon\Carbon;
 
 class ArticleController extends Controller
 {
@@ -13,7 +16,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        $articles = Article::liste_articles();
+        return view('forum.index',['articles' =>  $articles ]);
     }
 
     /**
@@ -32,9 +36,22 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request){
+
+
+    $validatedData = $request->validate([
+        'titre' => 'required|min:2|max:50',
+        'contenu_fr' => 'required|min:2|max:1000',
+        'contenu_en' => 'required|min:2|max:1000',
+    ]);
+
+    $validatedData['date_publication'] = Carbon::now()->format('Y-m-d H:i:s');
+    $validatedData['etudiant_id'] = Auth::id();
+
+    $article = Article::create($validatedData);
+
+    return redirect(route('forum.index'))->withSuccess(trans('create_article.text_success_user'));
+
     }
 
     /**
@@ -43,9 +60,9 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        return view('forum.create');
     }
 
     /**
