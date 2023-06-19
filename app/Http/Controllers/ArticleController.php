@@ -50,7 +50,12 @@ class ArticleController extends Controller
 
     $article = Article::create($validatedData);
 
-    return redirect(route('forum.index'))->withSuccess(trans('create_article.text_success_user'));
+    if($article)
+        return redirect(route('forum.index'))->withSuccess(trans('create_article.text_success_user'));
+    else
+       return redirect(route('forum.index'))->withError(trans('forum.message_error_user_create'));
+
+
 
     }
 
@@ -96,6 +101,20 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        //
+       $article = Article::findOrFail($id);
+      
+        if (/* $article->etudiant_id */ 1  != Auth::id()) {
+            // L'étudiant n'est pas autorisé à supprimer cet article
+            return redirect(route('forum.index'))->withError(trans('forum.message_error_user_delete'));
+        }
+
+         if($article->delete()){
+            $articles = Article::liste_articles();
+            return redirect(route('forum.index'))->with(['articles' => $articles])->withSuccess(trans('forum.message_success_user_deleted'));
+
+         }
+        else
+            return redirect(route('forum.index'))->withError(trans('forum.message_error_user_deleted'));
+
     }
 }

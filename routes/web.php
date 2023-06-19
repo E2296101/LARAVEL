@@ -26,6 +26,7 @@ Route::get('/', function () {
 Route::get('forum', [ArticleController::class, 'index'])->name('forum.index')->middleware('auth');
 Route::get('forum-create', [ArticleController::class, 'show'])->name('forum.create')->middleware('auth');
 Route::post('forum-create', [ArticleController::class, 'store'])->middleware('auth');
+Route::get('forum-delete/{articleId}', [ArticleController::class, 'destroy'])->middleware('auth');
 Route::get('user-create', [UserController::class, 'index'])->name('auth.create');
 Route::post('user-create', [UserController::class, 'store']);
 
