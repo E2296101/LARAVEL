@@ -16,6 +16,8 @@ return [
     'message_error_user_deleted' => 'Impossible de supprimer',
     'message_success_user_deleted' => 'Article supprimé avec succès',
     'message_success_user_edit' => 'Article modifié avec succès',
+    'message_error_article_not_found' => 'Article non trouvé',
+    'message_error_user_not_authorized' => 'Modification non autorisée',
 
 
 

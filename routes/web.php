@@ -6,6 +6,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FichierController;
 
 
 /*
@@ -23,10 +24,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('fichier', function () {
+    return view('fichiers.index');
+});
+
 Route::get('forum', [ArticleController::class, 'index'])->name('forum.index')->middleware('auth');
 Route::get('forum-create', [ArticleController::class, 'show'])->name('forum.create')->middleware('auth');
 Route::post('forum-create', [ArticleController::class, 'store'])->middleware('auth');
 Route::get('forum-delete/{articleId}', [ArticleController::class, 'destroy'])->middleware('auth');
+Route::get('forum-edit/{articleId}', [ArticleController::class, 'edit'])->name('forum.edit')->middleware('auth');
+Route::put('forum-edit/{articleId}', [ArticleController::class, 'update'])->middleware('auth');
+
+Route::get('fichiers', [FichierController::class, 'index'])->name('fichiers.index')->middleware('auth');
+Route::get('file-upload', [FichierController::class, 'showUploadForm'])->name('fichier.upload')->middleware('auth');
+Route::post('file-upload', [FichierController::class, 'store'])->middleware('auth');
+Route::get('file-download/{id}', [FichierController::class, 'telecharger'])->name('fichier.download')->middleware('auth');
+
 Route::get('user-create', [UserController::class, 'index'])->name('auth.create');
 Route::post('user-create', [UserController::class, 'store']);
 
@@ -40,5 +53,4 @@ Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::post('login', [AuthController::class, 'authentification'])->name('login.authentification');
 Route::get('deconnexion', [AuthController::class, 'deconnexion']);
 Route::get('lang/{locale}', [LanguageController::class, 'index'])->name('lang');
-
 

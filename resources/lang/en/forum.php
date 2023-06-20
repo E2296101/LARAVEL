@@ -16,5 +16,7 @@ return [
     'message_error_user_deleted' => 'delete failed',
     'message_success_user_deleted' => 'Article successfully deleted',
     'message_success_user_edit' => 'item edited successfully',
+    'message_error_article_not_found' => 'Article not found',
+    'message_error_user_not_authorized' => 'Unauthorized modification',
 
 ];

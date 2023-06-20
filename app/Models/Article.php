@@ -14,8 +14,6 @@ class Article extends Model
         ->join('etudiants', 'articles.etudiant_id', '=', 'etudiants.id')
         ->orderBy('date_publication', 'desc')
         ->get();
-
-
     return $articles;
     }
 

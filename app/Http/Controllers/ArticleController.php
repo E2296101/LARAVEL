@@ -55,8 +55,6 @@ class ArticleController extends Controller
     else
        return redirect(route('forum.index'))->withError(trans('forum.message_error_user_create'));
 
-
-
     }
 
     /**
@@ -78,7 +76,20 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $article = Article::findOrFail($id);
+
+        // Vérifiez si l'article existe
+        if (!$article) {
+            return redirect(route('forum.index'))->withError(trans('forum.message_error_article_not_found'));
+        }
+
+        // Vérifiez si l'utilisateur est autorisé à modifier l'article
+        if ($article->etudiant_id != Auth::id()) {
+            return redirect(route('forum.index'))->withError(trans('forum.message_error_user_not_authorized'));
+        }
+
+        // Vous pouvez passer l'article à la vue de modification
+        return view('forum.edit', ['article' => $article]);
     }
 
     /**
@@ -90,8 +101,40 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'titre' => 'required|min:2|max:50',
+            'contenu_fr' => 'required|min:2|max:1000',
+            'contenu_en' => 'required|min:2|max:1000',
+        ]);
+
+        // Récupérer l'article à partir de l'ID
+        $article = Article::findOrFail($id);
+
+        // Vérifier si l'article existe
+        if (!$article) {
+            return redirect(route('forum.index'))->withError(trans('forum.message_error_article_not_found'));
+        }
+
+        // Vérifier si l'utilisateur est autorisé à modifier l'article
+        if ($article->etudiant_id != Auth::id()) {
+            return redirect(route('forum.index'))->withError(trans('forum.message_error_user_not_authorized'));
+        }
+
+        // Mettre à jour les attributs de l'article
+        $article->titre = $validatedData['titre'];
+        $article->contenu_fr = $validatedData['contenu_fr'];
+        $article->contenu_en = $validatedData['contenu_en'];
+
+        // Enregistrer les modifications de l'article
+        $updated = $article->save();
+
+        if ($updated) {
+            return redirect(route('forum.index'))->withSuccess(trans('create_article.text_success_user'));
+        } else {
+            return redirect(route('forum.index'))->withError(trans('forum.message_error_user_create'));
+        }
     }
+
 
     /**
      * Remove the specified resource from storage.
