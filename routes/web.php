@@ -47,10 +47,10 @@ Route::get('user-create', [UserController::class, 'index'])->name('auth.create')
 Route::post('user-create', [UserController::class, 'store']);
 
 
-Route::post('etudiant-create', [EtudiantController::class, 'store']);
+/* Route::post('etudiant-create', [EtudiantController::class, 'store']);
 Route::get('etudiant-delete/{EtudiantId}', [EtudiantController::class, 'destroy']);
 Route::get('etudiant-edit/{EtudiantId}', [EtudiantController::class, 'edit'])->name('etudiant.edit');
-Route::put('etudiant-edit/{etudiant}', [EtudiantController::class, 'update']);
+Route::put('etudiant-edit/{etudiant}', [EtudiantController::class, 'update']); */
 
 Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::post('login', [AuthController::class, 'authentification'])->name('login.authentification');

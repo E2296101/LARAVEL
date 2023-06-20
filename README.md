@@ -7,18 +7,15 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## TP_01
+## TP_02
 
 Créer un site web dynamique en utilisant le cadriciel Laravel
-
-Le mandat est de créer un site Internet pour recueillir de l'information auprès des
-étudiants du Collège Maisonneuve, et possiblement à l'avenir, de construire un réseau
-social pour eux.
 
 
 
 ## Liens WebDev
 
-- [Site sur WebDev](https://e2296101.webdev.cmaisonneuve.qc.ca/CADRICIEL/TP_01/).
+- [Site sur WebDev](https://e2296101.webdev.cmaisonneuve.qc.ca/CADRICIEL/TP_02/).
+- [GIT](https://github.com/E2296101/LARAVEL/tree/TP_02).
 
 
