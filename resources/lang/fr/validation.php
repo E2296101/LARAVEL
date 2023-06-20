@@ -16,5 +16,6 @@ return [
     'unique' => 'La valeur du champ :attribute est déjà utilisée.',
     'password' => 'Le mot de passe doit contenir au moins :min caractères.',
     'same' => 'Le champ mot de passe de confirmation  et mot de passe doivent correspondre.',
+    'mimes' => 'Fichier non supporté (PDF, ZIP ou DOC).',
 ];
 

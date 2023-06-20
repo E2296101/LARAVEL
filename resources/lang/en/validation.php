@@ -16,4 +16,5 @@ return [
     'unique' => 'The :attribute has already been taken.',
     'password' => 'The :attribute must be at least :min characters.',
      'same' => 'The :attribute and :other must match.',
+    'mimes' => 'File not supported (PDF, ZIP or DOC).',
 ];

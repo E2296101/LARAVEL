@@ -51,7 +51,7 @@ class FichierController extends Controller
         $validatedData = $request->validate([
             'titre_fr' => 'required|min:2|max:50',
             'titre_en' => 'required|min:2|max:50',
-            'chemin' => 'required|file',
+            'chemin' => 'required|mimes:pdf,doc,zip',
         ]);
 
         // Récupérer le fichier uploadé
@@ -150,7 +150,7 @@ class FichierController extends Controller
         $validatedData = $request->validate([
             'titre_fr' => 'required|min:2|max:50',
             'titre_en' => 'required|min:2|max:50',
-            'chemin' => 'required|file',
+            'chemin' => 'required|mimes:pdf,doc,zip',
         ]);
 
         // Récupérer le fichier uploadé
