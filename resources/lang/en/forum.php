@@ -15,8 +15,11 @@ return [
     'message_error_user_update' => 'Change failed',
     'message_error_user_deleted' => 'delete failed',
     'message_success_user_deleted' => 'Article successfully deleted',
+    'message_success_file_deleted' => 'File successfully deleted',
+    'message_error_file_deleted' => 'delete failed',
     'message_success_user_edit' => 'item edited successfully',
     'message_error_article_not_found' => 'Article not found',
+    'message_error_file_not_found' => 'file not found',
     'message_error_user_not_authorized' => 'Unauthorized modification',
 
 ];

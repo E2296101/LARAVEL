@@ -15,7 +15,8 @@ class Fichier extends Migration
     {
         Schema::create('fichiers', function (Blueprint $table) {
             $table->id();
-            $table->string('titre', 50);
+            $table->string('titre_fr', 50);
+            $table->string('titre_en', 50);
             $table->string('chemin', 200);
             $table->date('date_upload');
             $table->unsignedBigInteger('etudiant_id'); // Foreign key column

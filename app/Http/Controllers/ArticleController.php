@@ -146,7 +146,7 @@ class ArticleController extends Controller
     {
        $article = Article::findOrFail($id);
       
-        if (/* $article->etudiant_id */ 1  != Auth::id()) {
+        if ($article->etudiant_id  != Auth::id()) {
             // L'étudiant n'est pas autorisé à supprimer cet article
             return redirect(route('forum.index'))->withError(trans('forum.message_error_user_delete'));
         }

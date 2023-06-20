@@ -13,13 +13,14 @@ class Fichier extends Model
     $fichiers = Fichier::select('fichiers.*', 'etudiants.nom AS nom_etudiant')
         ->join('etudiants', 'fichiers.etudiant_id', '=', 'etudiants.id')
         ->orderBy('date_upload', 'desc')
-        ->get();
+        ->paginate(5);
     return $fichiers;
     }
 
         protected $fillable = [
         'id',
-        'titre',
+        'titre_fr',
+        'titre_en',
         'chemin',
         'date_upload',
         'etudiant_id',
