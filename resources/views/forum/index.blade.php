@@ -17,7 +17,7 @@
       <p class="card-text mb-1">
         @if(session('locale') == 'fr')
         {{$article->contenu_fr}}
-        @elseif(session('locale') == 'en')
+        @else
         {{$article->contenu_en}}
         @endif
       </p>

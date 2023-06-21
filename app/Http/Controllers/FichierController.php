@@ -80,7 +80,7 @@ class FichierController extends Controller
 
         // Obtenez le chemin de stockage du fichier
         $cheminFichier = $fichier->chemin ;
-        $nomFichier = basename($cheminFichier);
+        $nomFichier = basename(asset($cheminFichier));
 
         // Téléchargement du fichier
           return response()->download($cheminFichier, $nomFichier);

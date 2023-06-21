@@ -21,7 +21,7 @@
                 <td><a href="{{ route('fichier.download',$fichier->id)}}">
                     @if(session('locale') == 'fr')
                         {{$fichier->titre_fr}}
-                    @elseif(session('locale') == 'en')
+                    @else
                         {{$fichier->titre_en}}
                     @endif
                     </a>
